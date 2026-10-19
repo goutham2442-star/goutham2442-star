@@ -22,7 +22,7 @@ async function main() {
     if (event.type === "PullRequestEvent") action = `${event.payload?.action || "Updated"} pull request in`;
     if (event.type === "IssuesEvent") action = `${event.payload?.action || "Updated"} an issue in`;
     if (event.type === "CreateEvent") action = `Created ${event.payload?.ref_type || "item"} in`;
-    return `- **${date}** · ${action} [${repo}] (${repoUrl})`;
+    return `- **${date}** · ${action} [${repo}](${repoUrl})`;
   }) : ["No recent public events were returned by GitHub. Check back as your public activity changes."];
 
   const fs = await import("node:fs/promises");
